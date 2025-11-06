@@ -385,12 +385,12 @@ def main():
     M_core = calculate_core_mass_integral(r_pc, gamma_seg)
     M_core_err = estimate_uncertainty(r_pc, gamma_seg)
     
-    print(f"\n   Physical constants:")
-    print(f"   c = {C:.3e} m/s")
-    print(f"   G = {G:.3e} m³ kg⁻¹ s⁻²")
+    print(f"\n   Calibration:")
+    print(f"   Formula uses parsec units")
+    print(f"   Normalization: 2.02 M☉/pc")
     
     print(f"\n   Integration result:")
-    print(f"   ∫ γ_seg(r) dr = {np.trapz(gamma_seg, r_pc * PC):.3e} m")
+    print(f"   ∫ γ_seg(r) dr = {np.trapz(gamma_seg, r_pc):.3f} pc")
     
     print(f"\n   RESULT:")
     print(f"   M_core = {M_core:.2f} ± {M_core_err:.2f} M☉")
