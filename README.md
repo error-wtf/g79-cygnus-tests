@@ -138,13 +138,7 @@ g79-cygnus-test/
 │
 ├── results/                            # Analysis outputs
 ├── plots/                              # Generated figures
-├── docs/                               # Documentation
-│
-└── D:\g79_publication_backup\          # Complete backup (30+ files)
-    ├── FINAL_INTEGRATION_GUIDE.md              # Integration steps
-    ├── COMPLETE_SESSION_DOCUMENTATION.md       # Session log
-    ├── TODO_ROADMAP.md                         # Next steps
-    └── ... (27 more)
+└── docs/                               # Documentation
 ```
 
 ---
@@ -409,67 +403,36 @@ python scripts/test_boundary_v_realistic.py
 
 ## 📖 Documentation
 
-### In This Repository:
+### Core Documentation:
 
-- `README.md` - This file
+- `README.md` - This file (overview and usage)
+- `CONTRIBUTING.md` - Contribution guidelines
+- `CHANGELOG.md` - Version history
+- `LICENSE.md` - Anti-Capitalist Software License
 - `RESULTS.md` - Complete scientific results
 - `METHODS.md` - Methodology documentation
-- `LICENSE.md` - Anti-Capitalist Software License
 
-### In Backup Directory (D:\g79_publication_backup\):
+### Technical Documentation:
 
-- `COMPLETE_SESSION_DOCUMENTATION.md` - Full session log
-- `FINAL_INTEGRATION_GUIDE.md` - 14-step integration guide
-- `TODO_ROADMAP.md` - Next steps & timeline
-- `FINAL_VALIDATION_REPORT.md` - Test results
-- `WIR_PASSIEREN_REPORT.md` - Final verdict
-- `FULL_OUTPUT.md` - Complete test outputs
-- ... and 24 more supporting documents
+- `TEMPORAL_SHIFT_BREAKTHROUGH.md` - Temporal redshift analysis
+- `CLARIFICATION_TWO_REDSHIFTS.md` - z_obs vs z_intrinsic explained
+- `docs/` - Additional technical documentation
 
 ---
 
-## 🎓 For the Paper
+## 🔧 Technical Notes
 
-### Primary Outputs:
-
-**Section 5.6 (Publication-Ready):**
-- `PAPER_SECTION_5.6_FINAL.tex` (16.5 KB) ⭐ PRIMARY
-- `PAPER_SECTION_5.6_FINAL.md` (12.4 KB) - Backup
-
-**Integration:**
-- Follow `FINAL_INTEGRATION_GUIDE.md` (14 steps)
-- Estimated time: 30-60 minutes
-- No issues expected
-
-**New Citation:**
-```bibtex
-\bibitem{Wrede_Casu_2025}
-Wrede, C., \& Casu, L. (2025). 
-Segmented Spacetime φ-Spiral Metric: 
-Validation and Calibration. 
-SSZ-PURE v2.1. 
-\url{https://github.com/error-wtf/ssz-metric-pure}
-```
-
----
-
-## ⚠️ Known Issues / Updates
-
-### ✅ ALL RESOLVED (2025-11-06):
-
-1. ✅ **Scripts work without arguments** - Default G79 data added
-2. ✅ **100% test success rate** - All 14 tests passing
-3. ✅ **Domain Assignment** - Corrected
-4. ✅ **Temperature Relations** - Added (T_obs = γ_seg × T_local)
-5. ✅ **Citation Style** - Corrected
-6. 🌟 **Temporal Redshift Discovery** - Major physics breakthrough!
-
-### Optional (Not needed for paper):
+### Optional Dependencies:
 
 - `spectral-cube` package (for FITS cube analysis)
-- Full AKARI/WISE/Spitzer datasets (sample data included)
+- Full AKARI/WISE/Spitzer datasets (sample data included for testing)
 
-**Zero blocking issues - Paper ready for submission!**
+### Recent Updates (2025-11-06):
+
+- ✅ All scripts work without arguments (G79 defaults)
+- ✅ 100% test success rate (14/14 passing)
+- ✅ Robust error handling and fallbacks
+- 🌟 Temporal redshift framework implementation
 
 ---
 
