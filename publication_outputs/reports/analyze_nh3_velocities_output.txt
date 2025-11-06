@@ -1,0 +1,108 @@
+Script: E:\clone\g79-cygnus-test\scripts\analyze_nh3_velocities.py
+Status: PASS
+Exit code: 0
+
+================================================================================
+STDOUT:
+================================================================================
+NH3 VELOCITY ANALYSIS - G79.29+0.46
+================================================================================
+
+Loading: G79_Rizzo2014_NH3_Table1.csv
+
+NH3 VELOCITY COMPONENTS
+--------------------------------------------------------------------------------
+component  v_min_kms  v_max_kms  Trot_K  Trot_err_K    N_NH3_cm2  N_NH3_err_cm2 Trot_limit_type
+  Central        0.3        1.9      11         2.0 1.700000e+15   2.000000e+14        measured
+     Blue       -1.7        0.3      40         NaN 1.500000e+12            NaN     lower_limit
+      Red        1.9        2.8      28         NaN 1.500000e+12            NaN     lower_limit
+
+VELOCITY ANALYSIS
+--------------------------------------------------------------------------------
+Central : v =  +0.3 to  +1.9 km/s
+          Center: +1.10 km/s, Width: 1.60 km/s
+Blue    : v =  -1.7 to  +0.3 km/s
+          Center: -0.70 km/s, Width: 2.00 km/s
+Red     : v =  +1.9 to  +2.8 km/s
+          Center: +2.35 km/s, Width: 0.90 km/s
+
+Total velocity range: -1.7 to +2.8 km/s
+Total velocity spread: Δv_total = 4.5 km/s
+
+SSZ VELOCITY EXCESS PREDICTION
+--------------------------------------------------------------------------------
+Predicted (SSZ energy release): Δv ~ 5 km/s
+Observed (NH3 components):      Δv = 4.5 km/s
+
+✓ EXCELLENT MATCH! (within 1 km/s)
+
+MACH NUMBER ANALYSIS
+--------------------------------------------------------------------------------
+Using T_rot from NH3:
+
+Central :
+  v_center = +1.10 km/s
+  T_rot = 11 K
+  c_s = 0.199 km/s
+  M = v/c_s = 5.54
+  → Domain: g^(1) (CLASSICAL)
+
+Blue    :
+  v_center = -0.70 km/s
+  T_rot = 40 K
+  c_s = 0.379 km/s
+  M = v/c_s = 1.85
+  → Domain: g^(1) (CLASSICAL)
+
+Red     :
+  v_center = +2.35 km/s
+  T_rot = 28 K
+  c_s = 0.317 km/s
+  M = v/c_s = 7.42
+  → Domain: g^(1) (CLASSICAL)
+
+TEMPERATURE INVERSION ANALYSIS
+--------------------------------------------------------------------------------
+NH3 Rotational Temperatures:
+
+Central : T_rot = 11 K (measured)
+Blue    : T_rot > 40 K (lower limit)
+Red     : T_rot > 28 K (lower limit)
+
+Interpretation:
+  • Central component is COLDEST (11 K)
+  • Blue/Red components are WARMER (>28-40 K)
+  • This is OPPOSITE to classical expectation!
+
+Classical expectation: T decreases outward
+Observed (NH3): T is LOWEST in center → INVERSION! ✓
+
+SSZ INTERPRETATION
+--------------------------------------------------------------------------------
+NH3 T_rot vs Dust T_kinetic discrepancy:
+
+  Di Francesco 2010 (dust): T ~ 38-78 K (increasing inward)
+  Rizzo 2014 (NH3):         T_rot = 11 K (central)
+
+Possible explanation:
+  In g^(2) domain: T_rot (molecular) ≠ T_kinetic (dust)
+  Reason: Slower time → reduced molecular rotation
+         → Low T_rot despite high kinetic energy
+
+This is a NEW prediction testable with SSZ framework!
+
+================================================================================
+SUMMARY
+================================================================================
+
+✓ Velocity spread Δv ~ 4.5 km/s matches SSZ prediction (5 km/s)
+✓ Temperature inversion observed (cold center, warm outer)
+⚠ High Mach numbers (M > 1) suggest g^(1) domain
+⚠ T_rot vs T_kinetic discrepancy needs theoretical explanation
+
+Next steps:
+  1. Calculate M using dust T (Di Francesco) instead of T_rot
+  2. Investigate T_rot vs T_kinetic decoupling in SSZ
+  3. Determine if velocity components are spatial or kinematic
+
+================================================================================

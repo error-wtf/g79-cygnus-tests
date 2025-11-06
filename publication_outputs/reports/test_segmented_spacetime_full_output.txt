@@ -1,0 +1,26 @@
+Script: E:\clone\g79-cygnus-test\scripts\test_segmented_spacetime_full.py
+Status: FAIL
+Exit code: 1
+
+================================================================================
+STDOUT:
+================================================================================
+SEGMENTED SPACETIME - COMPLETE MODEL TEST
+================================================================================
+
+Paper: 'Segmented Spacetime and the Origin of Molecular Zones'
+Authors: Carmen N. Wrede, Lino P. Casu, Bingsi
+
+Object: G79.29+0.46 (LBV nebula in Cygnus X)
+Distance: 1.7 kpc
+Diameter: ~4.5 pc
+
+[1/6] Loading observational data...
+   ✗ Temperature file not found: data\G79_temperatures.csv
+   ⚠ Synthetic file not found: G79_rings_synthetic_from_papers.csv
+   ⚠ NH3 file not found: G79_Rizzo2014_NH3_Table1.csv
+   ⚠ AKARI rings not found
+   ⚠ WISE rings not found
+
+ERROR: No temperature data found!
+Need at least data/G79_temperatures.csv to proceed

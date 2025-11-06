@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Output files
+*.png
+*.pdf
+!papers/*.pdf
+*.csv
+!data/**/*.csv
+*.fits
+*.log
+
+# Temporary
+*.tmp
+*.bak
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large data files
+data/planck/*.txt
+
+# Generated outputs
+G79_*.png
+G79_*.csv
+demo_*.csv
+akari_*.csv
+wise_*.csv
+*_rings.csv

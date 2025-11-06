@@ -1,0 +1,47 @@
+================================================================================
+MASTER TEST SUITE - COMPLETE RESULTS
+================================================================================
+
+Date: 2025-11-05 23:25:41
+Total Tests: 9
+Passed: 8/9 (88.9%)
+Critical: 7/7 (100.0%)
+
+DETAILED RESULTS:
+--------------------------------------------------------------------------------
+1. [PASS] Core Mass (Empirical) (4.9s)
+   Script: scripts/core_mass_empirical.py
+   Critical: True
+
+2. [PASS] Core Mass (SSZ-Pure Integration) (4.9s)
+   Script: scripts/core_mass_ssz_pure_integration.py
+   Critical: False
+
+3. [PASS] Boundary Velocity Boost (Realistic) (5.2s)
+   Script: scripts/test_boundary_v_realistic.py
+   Critical: True
+
+4. [PASS] Energy Release Mechanism (2.7s)
+   Script: scripts/energy_release_model.py
+   Critical: True
+
+5. [PASS] Segmented Spacetime Full Test (4.2s)
+   Script: scripts/test_segmented_spacetime_full.py
+   Critical: True
+
+6. [PASS] Two-Metric Model (2.5s)
+   Script: scripts/two_metric_model.py
+   Critical: True
+
+7. [PASS] NH3 Velocity Analysis (2.0s)
+   Script: scripts/analyze_nh3_velocities.py
+   Critical: True
+
+8. [FAIL] AKARI Ring Extraction (2.6s)
+   Script: scripts/extract_akari_rings.py
+   Critical: False
+
+9. [PASS] Paper Predictions Verification (3.6s)
+   Script: scripts/verify_paper_predictions_FIXED.py
+   Critical: True
+

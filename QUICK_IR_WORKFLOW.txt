@@ -1,0 +1,85 @@
+================================================================================
+QUICK REFERENCE: IR Catalog → Rings Workflow
+================================================================================
+
+STATUS: ✅ COMPLETE - All tools ready!
+
+--------------------------------------------------------------------------------
+1. PROCESS CATALOGS → RINGS
+--------------------------------------------------------------------------------
+
+python scripts/process_ir_catalogs.py
+
+Output:
+  - data/telescope/akari_fis_rings.csv    (4 rings, 65-160 μm)
+  - data/telescope/allwise_rings.csv      (9 rings, 3.4-22 μm)
+
+--------------------------------------------------------------------------------
+2. VISUALIZE RINGS
+--------------------------------------------------------------------------------
+
+python scripts/plot_ir_rings.py
+
+Output:
+  - results/ir_ring_profiles.png          (2×2 panel plot)
+
+--------------------------------------------------------------------------------
+3. FIT SSZ PROFILE (Next Step!)
+--------------------------------------------------------------------------------
+
+python scripts/fit_gamma_seg_profile.py data/telescope/allwise_rings.csv
+
+Expected: γ_seg(r) = γ_0 × exp(-r/r_seg)
+
+--------------------------------------------------------------------------------
+DATA SUMMARY
+--------------------------------------------------------------------------------
+
+AKARI FIS:
+  - Sources: 24 total, 6 within 2 pc
+  - Rings: 4 (sparse!)
+  - Coverage: 0.5-1.9 pc
+  - Bands: 65, 90, 140, 160 μm
+  - Type: Flux [Jy]
+
+WISE AllWISE:
+  - Sources: 1371 total, 159 within 2 pc
+  - Rings: 9 (EXCELLENT!)
+  - Coverage: 0.3-1.9 pc
+  - Bands: W1 (3.4), W2 (4.6), W3 (12), W4 (22) μm
+  - Type: Magnitude [mag]
+
+--------------------------------------------------------------------------------
+KEY FILES
+--------------------------------------------------------------------------------
+
+Scripts:
+  scripts/catalog_to_rings.py          Core converter
+  scripts/process_ir_catalogs.py       Batch processor
+  scripts/plot_ir_rings.py             Visualization
+
+Data:
+  data/telescope/akari_fis_rings.csv   AKARI output
+  data/telescope/allwise_rings.csv     WISE output
+
+Results:
+  results/ir_ring_profiles.png         Plot
+
+Docs:
+  IR_CATALOG_TO_RINGS.md               Full guide
+  IR_RINGS_SUCCESS.md                  Results summary
+  SESSION_2025-11-05_IR_CATALOGS.md    Session notes
+
+--------------------------------------------------------------------------------
+NEXT STEPS
+--------------------------------------------------------------------------------
+
+1. ⏳ Fit exponential profiles (test SSZ)
+2. ⏳ Convert WISE mag → flux
+3. ⏳ Compare AKARI vs WISE
+4. ⏳ Multi-wavelength SED
+5. ⏳ Cross-validate with NH3/CO
+
+================================================================================
+© 2025 Carmen N. Wrede, Lino P. Casu
+================================================================================

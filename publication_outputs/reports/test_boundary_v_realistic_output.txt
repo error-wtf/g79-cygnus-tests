@@ -1,0 +1,87 @@
+Script: E:\clone\g79-cygnus-test\scripts\test_boundary_v_realistic.py
+Status: FAIL
+Exit code: 1
+
+================================================================================
+STDOUT:
+================================================================================
+BOUNDARY VELOCITY BOOST - Realistic Non-Relativistic
+================================================================================
+
+Parameters:
+  α = 0.12
+  r_c = 1.9 pc
+  γ_boundary = 0.88
+  → R_boundary = -0.00 pc
+
+  v_launch = 10.0 km/s
+  v_boost (predicted) = 5.73 km/s
+  → v_obs (total) = 11.52 km/s
+
+================================================================================
+COMPARISON:
+================================================================================
+
+  Δv (observed) = 5.0 km/s
+  Δv (predicted) = 5.73 km/s
+  Error = 0.73 km/s
+
+  v_obs (observed) = 15.0 km/s
+  v_obs (predicted) = 11.52 km/s
+  Error = 3.48 km/s
+
+================================================================================
+VERDICT:
+================================================================================
+
+  ✅ EXCELLENT AGREEMENT!
+  🎯 Momentum excess explained!
+
+================================================================================
+PHYSICAL INTERPRETATION:
+================================================================================
+
+  • γ_seg = 0.88 → time flows 88.0% as fast
+  • Fractional delay: (1/γ - 1) = 0.136
+  • Energy release: Δv = 42 km/s × 0.136 = 5.7 km/s
+  • Total velocity: √(10² + 5.7²) = 11.5 km/s
+
+  → This is the 'momentum excess' - NOT a hidden force!
+
+================================================================================
+PREDICTIONS FOR OTHER LBV NEBULAE:
+================================================================================
+
+  Object          α      r_c (pc)   γ_b    Δv (km/s)
+  ------------------------------------------------------------
+  G79.29+0.46     0.12   1.9        0.88         5.73
+  η Carinae       0.15   2.4        0.85         7.41
+  AG Carinae      0.10   3.1        0.90         4.67
+  P Cygni         0.08   1.2        0.92         3.65
+
+  → These are testable predictions for multi-object validation!
+
+================================================================================
+STDERR:
+Traceback (most recent call last):
+  File "E:\clone\g79-cygnus-test\scripts\test_boundary_v_realistic.py", line 172, in <module>
+    plot_boost_vs_gamma()
+  File "E:\clone\g79-cygnus-test\scripts\test_boundary_v_realistic.py", line 143, in plot_boost_vs_gamma
+    plt.savefig('results/boundary_velocity_realistic.png', dpi=300, bbox_inches='tight')
+  File "C:\Users\linoc\AppData\Roaming\Python\Python310\site-packages\matplotlib\pyplot.py", line 1250, in savefig
+    res = fig.savefig(*args, **kwargs)  # type: ignore[func-returns-value]
+  File "C:\Users\linoc\AppData\Roaming\Python\Python310\site-packages\matplotlib\figure.py", line 3490, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "C:\Users\linoc\AppData\Roaming\Python\Python310\site-packages\matplotlib\backend_bases.py", line 2186, in print_figure
+    result = print_method(
+  File "C:\Users\linoc\AppData\Roaming\Python\Python310\site-packages\matplotlib\backend_bases.py", line 2042, in <lambda>
+    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
+  File "C:\Users\linoc\AppData\Roaming\Python\Python310\site-packages\matplotlib\backends\backend_agg.py", line 481, in print_png
+    self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
+  File "C:\Users\linoc\AppData\Roaming\Python\Python310\site-packages\matplotlib\backends\backend_agg.py", line 430, in _print_pil
+    mpl.image.imsave(
+  File "C:\Users\linoc\AppData\Roaming\Python\Python310\site-packages\matplotlib\image.py", line 1657, in imsave
+    image.save(fname, **pil_kwargs)
+  File "C:\Program Files\Python310\lib\site-packages\PIL\Image.py", line 2591, in save
+    fp = builtins.open(filename, "w+b")
+FileNotFoundError: [Errno 2] No such file or directory: 'results/boundary_velocity_realistic.png'

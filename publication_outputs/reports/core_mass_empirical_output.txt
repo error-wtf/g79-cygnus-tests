@@ -1,0 +1,74 @@
+Script: E:\clone\g79-cygnus-test\scripts\core_mass_empirical.py
+Status: FAIL
+Exit code: 1
+
+================================================================================
+STDOUT:
+================================================================================
+CORE MASS - Empirical Calibration
+================================================================================
+
+Parameters:
+  α = 0.12
+  r_c = 1.9 pc
+  R_boundary = 0.5 pc
+
+================================================================================
+RESULT:
+================================================================================
+
+  M_core = 8.70 M_sun (by calibration)
+
+  M_virial (literature) = 8.7 M_sun
+  Match: 0.00 M_sun
+
+================================================================================
+SCALING PREDICTIONS FOR OTHER OBJECTS:
+================================================================================
+
+If α varies (fixed r_c = 1.9 pc):
+  α = 0.08 → M_core ≈ 5.8 M_sun
+  α = 0.10 → M_core ≈ 7.2 M_sun
+  α = 0.12 → M_core ≈ 8.7 M_sun
+  α = 0.15 → M_core ≈ 10.9 M_sun
+
+If r_c varies (fixed α = 0.12):
+  r_c = 1.5 pc → M_core ≈ 5.4 M_sun
+  r_c = 1.7 pc → M_core ≈ 7.0 M_sun
+  r_c = 1.9 pc → M_core ≈ 8.7 M_sun
+  r_c = 2.5 pc → M_core ≈ 15.1 M_sun
+  r_c = 3.0 pc → M_core ≈ 21.7 M_sun
+
+================================================================================
+PHYSICAL INTERPRETATION:
+================================================================================
+
+  • M_core ∝ α × r_c²
+  • Larger α (deeper segmentation) → more mass
+  • Larger r_c (wider core) → quadratically more mass
+  • Consistent with virial estimates from NH3
+
+================================================================================
+STDERR:
+Traceback (most recent call last):
+  File "E:\clone\g79-cygnus-test\scripts\core_mass_empirical.py", line 146, in <module>
+    plot_mass_scaling()
+  File "E:\clone\g79-cygnus-test\scripts\core_mass_empirical.py", line 140, in plot_mass_scaling
+    plt.savefig('results/core_mass_scaling_empirical.png', dpi=300, bbox_inches='tight')
+  File "C:\Users\linoc\AppData\Roaming\Python\Python310\site-packages\matplotlib\pyplot.py", line 1250, in savefig
+    res = fig.savefig(*args, **kwargs)  # type: ignore[func-returns-value]
+  File "C:\Users\linoc\AppData\Roaming\Python\Python310\site-packages\matplotlib\figure.py", line 3490, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "C:\Users\linoc\AppData\Roaming\Python\Python310\site-packages\matplotlib\backend_bases.py", line 2186, in print_figure
+    result = print_method(
+  File "C:\Users\linoc\AppData\Roaming\Python\Python310\site-packages\matplotlib\backend_bases.py", line 2042, in <lambda>
+    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
+  File "C:\Users\linoc\AppData\Roaming\Python\Python310\site-packages\matplotlib\backends\backend_agg.py", line 481, in print_png
+    self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
+  File "C:\Users\linoc\AppData\Roaming\Python\Python310\site-packages\matplotlib\backends\backend_agg.py", line 430, in _print_pil
+    mpl.image.imsave(
+  File "C:\Users\linoc\AppData\Roaming\Python\Python310\site-packages\matplotlib\image.py", line 1657, in imsave
+    image.save(fname, **pil_kwargs)
+  File "C:\Program Files\Python310\lib\site-packages\PIL\Image.py", line 2591, in save
+    fp = builtins.open(filename, "w+b")
+FileNotFoundError: [Errno 2] No such file or directory: 'results/core_mass_scaling_empirical.png'

@@ -1,0 +1,112 @@
+Script: E:\clone\g79-cygnus-test\RUN_COMPLETE_IR_ANALYSIS.py
+Status: PASS
+Exit code: 0
+
+================================================================================
+STDOUT:
+================================================================================
+🌀 SEGMENTED IR RING ANALYSIS – G79.29+0.46
+================================================================================
+
+Automated pipeline: IRSA Catalogs → Ring Profiles → Publication Plots
+
+Configuration:
+  Center: 20h31m41s +40d21m07s
+  Distance: 1.7 kpc
+  Ring width: 0.25 pc
+  Max radius: 2.0 pc
+================================================================================
+STEP 1: LOADING IRSA CATALOG DATA
+================================================================================
+
+Loading AKARI FIS catalog...
+  ✓ Loaded 24 AKARI sources
+  Columns: ['objid', 'objname', 'ra', 'dec', 'poserrmj', 'poserrmi', 'posserrpa', 'flux65', 'flux90', 'flux140']...
+
+Loading WISE AllWISE catalog...
+  ✓ Loaded 1371 WISE sources
+  Columns: ['designation', 'ra', 'dec', 'sigra', 'sigdec', 'sigradec', 'glon', 'glat', 'elon', 'elat']...
+
+================================================================================
+STEP 2-4: PROCESSING AKARI FIS
+================================================================================
+
+Computing radial distances...
+  Radial range: 0.57 - 4.91 pc
+  Sources within 2.0 pc: 6
+
+Binning into 8 rings (0.25 pc width)...
+  ✓ Created 3 rings with data
+
+  Ring Summary:
+    Ring 2.0: r=0.62 pc, n=2.0, flux65=40.3 Jy
+    Ring 5.0: r=1.38 pc, n=2.0, flux65=22.4 Jy
+    Ring 7.0: r=1.88 pc, n=2.0, flux65=22.2 Jy
+
+================================================================================
+STEP 5: SAVING AKARI CSV
+================================================================================
+  ✓ Saved: data\G79_AKARI_RINGS.csv
+
+================================================================================
+STEP 2-4: PROCESSING WISE ALLWISE
+================================================================================
+
+Computing radial distances...
+  Radial range: 0.22 - 4.94 pc
+  Sources within 2.0 pc: 159
+
+Binning into 8 rings (0.25 pc width)...
+  ✓ Created 8 rings with data
+
+  Ring Summary:
+    Ring 0.0: r=0.12 pc, n=1.0, W1=12.56 mag
+    Ring 1.0: r=0.38 pc, n=5.0, W1=10.62 mag
+    Ring 2.0: r=0.62 pc, n=11.0, W1=12.71 mag
+    Ring 3.0: r=0.88 pc, n=22.0, W1=12.16 mag
+    Ring 4.0: r=1.12 pc, n=22.0, W1=12.46 mag
+    Ring 5.0: r=1.38 pc, n=28.0, W1=12.64 mag
+    Ring 6.0: r=1.62 pc, n=28.0, W1=12.21 mag
+    Ring 7.0: r=1.88 pc, n=42.0, W1=12.08 mag
+
+================================================================================
+STEP 5: SAVING WISE CSV
+================================================================================
+  ✓ Saved: data\G79_WISE_RINGS.csv
+
+================================================================================
+STEP 6: CREATING PUBLICATION PLOT
+================================================================================
+
+✓ Saved plot: plots\IR_Ring_Profiles_G79.png
+
+================================================================================
+✅ ANALYSIS COMPLETE
+================================================================================
+
+📊 SUMMARY:
+
+AKARI FIS:
+  Total sources: 6
+  Rings with data: 3
+  Radial coverage: 0.62 - 1.88 pc
+
+WISE AllWISE:
+  Total sources: 159
+  Rings with data: 8
+  Radial coverage: 0.12 - 1.88 pc
+
+📁 OUTPUT FILES:
+  ✓ data\G79_AKARI_RINGS.csv
+  ✓ data\G79_WISE_RINGS.csv
+  ✓ plots\IR_Ring_Profiles_G79.png
+
+🎯 NEXT STEPS:
+  1. Validate ring profiles
+  2. Fit γ_seg(r) model:
+     python scripts/test_segmented_spacetime_full.py
+  3. Compare with NH3/CO data
+
+================================================================================
+Done! Publication-ready CSVs and plots created.
+================================================================================
