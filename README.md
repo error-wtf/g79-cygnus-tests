@@ -488,7 +488,7 @@ Test Coverage:    14 scripts (14/14 passing - 100% ✅)
 Success Rate:     100.0% (all tests passed!)
 Paper Status:     Section 5.6 Complete + Section 5.6.8 (Temporal Shift)
 Major Discovery:  🌟 Temporal Redshift = 86% of effect!
-Publication:      Ready for A&A submission (with breakthrough!)
+Publication:      Ready for submission (with breakthrough!)
 ```
 
 ---
@@ -503,14 +503,14 @@ Publication:      Ready for A&A submission (with breakthrough!)
 4. [ ] **Abstract Update** - Emphasize temporal redshift discovery
 5. [ ] **Compilation** - Test LaTeX (15 min)
 6. [ ] **Proofread** - Final check (30 min)
-7. [ ] **Submit** - To A&A with breakthrough!
+7. [ ] **Paper Finalization** - Complete manuscript
 
-### After Submission:
+### Future Work:
 
-6. Prepare referee response
-7. Test predictions (η Car, AG Car, P Cyg)
-8. FITS analysis (detailed rings)
-9. Follow-up paper (Nature Astronomy)
+- Test predictions (η Car, AG Car, P Cyg)
+- FITS analysis (detailed rings)
+- Extended observational campaigns
+- Follow-up theoretical work
 
 ---
 
@@ -553,9 +553,9 @@ If you use this work:
   title={Segmented Spacetime and the Origin of Molecular Zones 
          in Expanding Nebulae},
   author={Wrede, Carmen N. and Casu, Lino P. and Bingsi},
-  journal={To be submitted to Astronomy \& Astrophysics},
+  journal={In preparation},
   year={2025},
-  note={Validation repository: github.com/.../g79-cygnus-test}
+  note={Validation repository: github.com/error-wtf/g79-cygnus-tests}
 }
 ```
 
@@ -577,7 +577,7 @@ If you use this work:
 ║   Discovery:        Temporal > Kinetic (86%!) 🌟     ║
 ║   Integration:      Ready ✅                         ║
 ║                                                       ║
-║   🚀 NEXT: Integrate Section 5.6.8 + Submit!         ║
+║   🚀 NEXT: Integrate Section 5.6.8 into paper        ║
 ║                                                       ║
 ╚═══════════════════════════════════════════════════════╝
 ```
