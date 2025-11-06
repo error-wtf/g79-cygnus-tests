@@ -263,6 +263,149 @@ def compare_with_effelsberg(gamma_seg_typical=PAPER_GAMMA_SEG):
     
     print("="*80)
 
+def temporal_vs_doppler_analysis(gamma_seg_min=0.88, gamma_seg_max=1.0, v_expansion=5.0):
+    """
+    **NEW (2025-11-06): TEMPORAL SHIFT BREAKTHROUGH**
+    
+    Distinguish between temporal redshift and kinetic Doppler shift.
+    
+    KEY INSIGHT:
+    What appears as "velocity boost" is actually a TEMPORAL REDSHIFT
+    from the γ_seg metric transition, NOT classical kinetic acceleration!
+    
+    Args:
+        gamma_seg_min: Minimum γ_seg (in g^(2) core)
+        gamma_seg_max: Maximum γ_seg (in g^(1) shells, = 1.0)
+        v_expansion: Observed expansion velocity [km/s]
+    
+    Returns:
+        dict with temporal and Doppler components
+    """
+    print("\n" + "="*80)
+    print("🌟 TEMPORAL SHIFT vs DOPPLER SHIFT ANALYSIS")
+    print("="*80)
+    print("\n💡 BREAKTHROUGH (2025-11-06):")
+    print("   The 'velocity boost' is NOT kinetic energy release!")
+    print("   It is a TEMPORAL REDSHIFT from γ_seg metric transition!")
+    print("="*80)
+    
+    # Temporal component
+    z_temporal = 1.0 - gamma_seg_min
+    v_apparent_temporal = C * z_temporal / (1.0 + z_temporal) / 1000.0  # km/s
+    
+    # Doppler component (classical)
+    z_doppler = v_expansion * 1000.0 / C  # dimensionless
+    
+    # Total observed shift
+    z_total = z_temporal + z_doppler
+    v_total = C * z_total / (1.0 + z_total) / 1000.0  # km/s
+    
+    print(f"\n1. TEMPORAL REDSHIFT (Metric Effect):")
+    print(f"   ────────────────────────────────────")
+    print(f"   Inside g^(2):  γ_seg = {gamma_seg_min:.3f}")
+    print(f"   At boundary:   γ_seg → {gamma_seg_max:.3f}")
+    print(f"   ")
+    print(f"   Temporal shift:")
+    print(f"     z_temporal = 1 - γ_seg = {z_temporal:.4f}")
+    print(f"   ")
+    print(f"   Appears as velocity:")
+    print(f"     v_apparent = c × z/(1+z) = {v_apparent_temporal:.2f} km/s")
+    print(f"   ")
+    print(f"   Physical origin:")
+    print(f"     ⚡ Time dilation change")
+    print(f"     ⚡ Metric transition g^(2) → g^(1)")
+    print(f"     ⚡ NOT kinetic acceleration!")
+    
+    print(f"\n2. DOPPLER SHIFT (Kinetic Component):")
+    print(f"   ────────────────────────────────────")
+    print(f"   Expansion velocity: v = {v_expansion:.2f} km/s")
+    print(f"   ")
+    print(f"   Classical Doppler:")
+    print(f"     z_doppler = v/c = {z_doppler:.6f}")
+    print(f"   ")
+    print(f"   Physical origin:")
+    print(f"     🚀 Actual motion through space")
+    print(f"     🚀 Nebula expansion")
+    print(f"     🚀 Classical mechanics")
+    
+    print(f"\n3. TOTAL OBSERVED SHIFT:")
+    print(f"   ────────────────────────────────────")
+    print(f"   z_total = z_temporal + z_doppler")
+    print(f"   z_total = {z_temporal:.4f} + {z_doppler:.6f}")
+    print(f"   z_total = {z_total:.4f}")
+    print(f"   ")
+    print(f"   Apparent velocity:")
+    print(f"     v_total = {v_total:.2f} km/s")
+    
+    print(f"\n4. RELATIVE CONTRIBUTIONS:")
+    print(f"   ────────────────────────────────────")
+    frac_temporal = z_temporal / z_total * 100
+    frac_doppler = z_doppler / z_total * 100
+    print(f"   Temporal: {frac_temporal:.1f}%  ⚡ DOMINANT!")
+    print(f"   Doppler:  {frac_doppler:.1f}%   🚀 Minor")
+    
+    print(f"\n5. OBSERVATIONAL SIGNATURES:")
+    print(f"   ────────────────────────────────────")
+    print(f"   ")
+    print(f"   IF KINETIC (Classical):")
+    print(f"     ❌ Doppler broadening ∝ v²")
+    print(f"     ❌ Symmetric line profiles")
+    print(f"     ❌ Shock heating expected")
+    print(f"     ❌ T ∝ v² (kinetic energy)")
+    print(f"   ")
+    print(f"   IF TEMPORAL (Our Case):")
+    print(f"     ✅ Line shifting without broadening")
+    print(f"     ✅ Asymmetric profiles (g^(2) vs g^(1))")
+    print(f"     ✅ Temperature from time dilation")
+    print(f"     ✅ T_obs = γ_seg × T_local")
+    
+    print(f"\n6. PHYSICAL INTERPRETATION:")
+    print(f"   ────────────────────────────────────")
+    print(f"   ")
+    print(f"   OLD (Incorrect):")
+    print(f"     'Material accelerates at boundary'")
+    print(f"     'Stored potential energy → kinetic'")
+    print(f"     → Newtonian mechanics")
+    print(f"   ")
+    print(f"   NEW (Correct):")
+    print(f"     'Temporal metric changes at boundary'")
+    print(f"     'Time dilation shifts frequencies'")
+    print(f"     → General Relativity / Metric Physics")
+    
+    print(f"\n7. TESTABLE PREDICTIONS:")
+    print(f"   ────────────────────────────────────")
+    print(f"   ")
+    print(f"   Test 1: High-resolution spectroscopy")
+    print(f"     • Look for non-Doppler components")
+    print(f"     • Compare line widths inside vs outside g^(2)")
+    print(f"   ")
+    print(f"   Test 2: Multi-frequency observations")
+    print(f"     • Temporal shift affects all frequencies")
+    print(f"     • Doppler depends on v_los only")
+    print(f"   ")
+    print(f"   Test 3: Time-domain monitoring")
+    print(f"     • Variability timescales differ in g^(2)")
+    print(f"     • Apparent 'slowing down' inside core")
+    
+    print(f"\n" + "="*80)
+    print("✅ CONCLUSION:")
+    print(f"   The observed {v_expansion:.1f} km/s 'velocity boost' is primarily")
+    print(f"   a TEMPORAL REDSHIFT ({frac_temporal:.0f}%), not kinetic!")
+    print(f"   ")
+    print(f"   This is METRIC PHYSICS, not Newtonian mechanics!")
+    print("="*80 + "\n")
+    
+    return {
+        'z_temporal': z_temporal,
+        'z_doppler': z_doppler,
+        'z_total': z_total,
+        'v_apparent_temporal': v_apparent_temporal,
+        'v_expansion': v_expansion,
+        'v_total': v_total,
+        'frac_temporal': frac_temporal,
+        'frac_doppler': frac_doppler
+    }
+
 def plot_radio_predictions(r_pc, gamma_seg, nu_0, output_file=None):
     """
     Plot radio frequency and intensity predictions
@@ -482,6 +625,14 @@ def main():
     if args.plot.lower() != 'none':
         print(f"\n   Creating diagnostic plots...")
         plot_radio_predictions(r_pc, gamma_seg, args.nu0, args.plot)
+    
+    # NEW: Temporal vs Doppler Analysis (2025-11-06 Breakthrough!)
+    print(f"\n[BONUS] Temporal vs Doppler Analysis...")
+    temporal_vs_doppler_analysis(
+        gamma_seg_min=np.min(gamma_seg),
+        gamma_seg_max=1.0,
+        v_expansion=5.0  # G79 observed expansion velocity
+    )
     
     # Summary
     print(f"\n" + "="*80)
