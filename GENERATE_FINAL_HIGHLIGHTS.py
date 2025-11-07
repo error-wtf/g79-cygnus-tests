@@ -189,14 +189,14 @@ for i, (T, r) in enumerate(zip(SHELL_T, SHELL_R)):
 
 ax1.set_xticks(range(3))
 ax1.set_xticklabels(['Inner\nShell', 'Middle\nShell', 'Outer\nShell'])
-ax1.set_ylabel('Temperature $T$ [K]', fontweight='bold', fontsize=12)
-ax1.set_title('A) Thermal Inversion\n(Spitzer/IRAC)', fontsize=12, fontweight='bold')
+ax1.set_ylabel(r'Temperature $T$ [K]', fontweight='bold', fontsize=12)
+ax1.set_title('A) Infrared Shell Temperatures\n(Spitzer/IRAC)', fontsize=12, fontweight='bold')
 ax1.grid(axis='y', alpha=0.25, linestyle=':', linewidth=0.9)
 ax1.set_ylim(0, 650)
 
 # Panel 2: Velocity comparison
 ax2 = fig.add_subplot(gs[0, 1])
-categories = ['Classical\nPrediction', 'SSZ\nPrediction', 'Observed\n(CO, NH₃)']
+categories = ['Classical\nExpectation', 'SSZ\nPrediction', 'Observed\n(CO, NH₃)']
 velocities = [10.0, 14.0, 15.0]
 v_errors = [0.5, 1.0, 1.0]
 colors_v = ['#1f77b4', '#2ca02c', '#d62728']
@@ -210,54 +210,73 @@ for i, (v, e) in enumerate(zip(velocities, v_errors)):
     ax2.text(i, v + e + 0.6, f'{v:.0f} km s$^{{-1}}$', ha='center', va='bottom',
             fontsize=11, fontweight='bold')
 
-ax2.axhline(y=10, color='gray', linestyle='--', linewidth=2, alpha=0.5)
+# Classical model as dashed reference line
+ax2.axhline(y=10, color='gray', linestyle='--', linewidth=2.5, alpha=0.7,
+           label='Classical model', zorder=1)
 ax2.set_xticks(range(3))
 ax2.set_xticklabels(categories, fontsize=10)
-ax2.set_ylabel('Expansion velocity [km s$^{-1}$]', fontweight='bold', fontsize=12)
-ax2.set_title('B) Momentum Excess\n(§5.3)', fontsize=12, fontweight='bold')
+ax2.set_ylabel(r'Expansion velocity $v$ [km s$^{-1}$]', fontweight='bold', fontsize=12)
+ax2.set_title('B) Velocity Excess\n(§5.3)', fontsize=12, fontweight='bold')
 ax2.grid(axis='y', alpha=0.25, linestyle=':', linewidth=0.9)
 ax2.set_ylim(0, 19)
 
-# Panel 3: Multi-wavelength coverage
+# Panel 3: Multi-wavelength emission lines
 ax3 = fig.add_subplot(gs[0, 2])
 emissions = {
-    'CO (3-2)': (345, 'purple'),
-    'NH₃ (1,1)': (23.7, 'cyan'),
-    'Radio 6cm': (5.0, 'orange')
+    'Radio 6 cm': (60.0, '#ff9933'),  # Orange (60 mm wavelength in nm units)
+    'NH₃ (1,1)': (12.6, '#33cccc'),   # Cyan (sub-mm)
+    'CO (3-2)': (0.9, '#9966cc')      # Purple (sub-mm)
 }
 
 y_pos = 0
-for name, (freq, color) in emissions.items():
-    ax3.barh(y_pos, freq, height=0.6, color=color, alpha=0.75,
+for name, (wavelength, color) in emissions.items():
+    ax3.barh(y_pos, wavelength, height=0.6, color=color, alpha=0.75,
             edgecolor='black', linewidth=2)
-    ax3.text(freq + 15, y_pos, f'{freq:.1f} GHz', va='center',
+    ax3.text(wavelength + 2, y_pos, f'{wavelength:.1f} mm', va='center',
             fontsize=11, fontweight='bold')
     y_pos += 1
 
 ax3.set_yticks(range(len(emissions)))
 ax3.set_yticklabels(list(emissions.keys()), fontsize=11)
-ax3.set_xlabel('Frequency [GHz]', fontweight='bold', fontsize=12)
-ax3.set_title('C) Spectral Overlap\n(IRAM, Effelsberg)', fontsize=12, fontweight='bold')
+ax3.set_xlabel(r'Wavelength $\lambda$ [mm]', fontweight='bold', fontsize=12)
+ax3.set_title('C) Multi-Wavelength Emission Lines\n(IRAM, Effelsberg)', fontsize=12, fontweight='bold')
 ax3.grid(axis='x', alpha=0.25, linestyle=':', linewidth=0.9)
-ax3.set_xlim(0, 400)
+ax3.set_xlim(0, 70)
 
-# Panel 4: Observational consistency (bottom row)
+# Panel 4: Spectral Coverage and Overlap (bottom row)
 ax4 = fig.add_subplot(gs[1, :])
-ax4.axis('off')
 
-consistency_text = (
-    'Multi-Wavelength Observational Consistency:\n\n'
-    '• Thermal inversion: Cold molecular gas (20–80 K) within hot ionized region\n'
-    '• Momentum excess: Δv ≈ 5 km s⁻¹ above classical wind prediction\n'
-    '• Spectral overlap: CO, NH₃, and radio continuum spatially coincident\n'
-    '• Chemical stability: Molecules survive in UV-dominated environment\n\n'
-    'All observations consistent with temporal density field γₛₑₘ(r)'
-)
+# Wavelength ranges for different observations
+wavelength_ranges = {
+    'IR (Spitzer/IRAC)': ([1, 10], '#d62728', 0.3),
+    'Sub-mm (IRAM 30m)': ([100, 1000], '#ff9933', 0.5),
+    'Radio (Effelsberg)': ([10000, 100000], '#33cccc', 0.7)
+}
 
-ax4.text(0.5, 0.5, consistency_text, transform=ax4.transAxes,
-        fontsize=13, ha='center', va='center',
-        bbox=dict(boxstyle='round,pad=1.0', facecolor='wheat',
-                 alpha=0.95, edgecolor='black', linewidth=2))
+y_height = 0.15
+y_pos_dict = {'IR (Spitzer/IRAC)': 0.2, 'Sub-mm (IRAM 30m)': 0.5, 'Radio (Effelsberg)': 0.8}
+
+for label, (wl_range, color, alpha_val) in wavelength_ranges.items():
+    ax4.barh(y_pos_dict[label], wl_range[1] - wl_range[0], left=wl_range[0],
+            height=y_height, color=color, alpha=alpha_val,
+            edgecolor='black', linewidth=2, label=label)
+    # Add label
+    center = (wl_range[0] + wl_range[1]) / 2
+    ax4.text(center, y_pos_dict[label], label.split('(')[0].strip(),
+            ha='center', va='center', fontsize=11, fontweight='bold', color='black')
+
+# Highlight overlap region
+ax4.axvspan(10000, 10000, alpha=0.3, color='yellow', zorder=0,
+           label='Overlap region')
+
+ax4.set_xscale('log')
+ax4.set_xlabel(r'Wavelength $\lambda$ [μm]', fontweight='bold', fontsize=13)
+ax4.set_ylabel('')
+ax4.set_yticks([])
+ax4.set_title('D) Spectral Coverage and Overlap', fontsize=13, fontweight='bold', pad=10)
+ax4.set_xlim(0.5, 200000)
+ax4.grid(axis='x', alpha=0.25, which='both', linestyle=':', linewidth=0.9)
+ax4.legend(loc='upper right', framealpha=0.95, fontsize=10, ncol=3)
 
 plt.suptitle('HIGHLIGHT 2: Multi-Wavelength Observational Evidence',
             fontsize=17, fontweight='bold', y=0.98)
