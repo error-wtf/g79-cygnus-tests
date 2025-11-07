@@ -46,6 +46,8 @@ htmlcov/
 !paper_style_figures/*.pdf
 !final_highlights/*.png
 !final_highlights/*.pdf
+!publication_figures_english/*.png
+!publication_figures_english/*.pdf
 !scientific_figures/*.png
 !scientific_figures/*.pdf
 !temperature_test_results/*.png
