@@ -48,6 +48,8 @@ htmlcov/
 !final_highlights/*.pdf
 !scientific_figures/*.png
 !scientific_figures/*.pdf
+!temperature_test_results/*.png
+!three_phase_results/*.png
 *.csv
 !data/**/*.csv
 !paper_style_figures/*.csv
