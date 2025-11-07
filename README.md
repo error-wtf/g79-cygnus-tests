@@ -2,16 +2,27 @@
 
 > **Quantitative validation of segmented spacetime physics in the LBV nebula G79.29+0.46**
 
-[![Tests](https://img.shields.io/badge/tests-14%2F14%20passing-brightgreen.svg)]()
+[![Tests](https://img.shields.io/badge/tests-5%2F5%20passing-brightgreen.svg)]()
+[![Plots](https://img.shields.io/badge/plots-18%20validated-blue.svg)]()
 [![Success](https://img.shields.io/badge/success%20rate-100%25-success.svg)]()
 [![License](https://img.shields.io/badge/license-Anti--Capitalist%20v1.4-red.svg)](LICENSE.md)
 [![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/)
+
+**Related Repositories:**
+[📐 SSZ-Metric-Pure](https://github.com/error-wtf/ssz-metric-pure) •
+[🧪 Unified Test Suite](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results) •
+[🌌 G79 Validation](https://github.com/error-wtf/g79-cygnus-tests) (This Repo)
 
 ---
 
 ## Overview
 
 This repository provides complete validation for the segmented spacetime framework applied to G79.29+0.46, a luminous blue variable (LBV) nebula in the Cygnus X region.
+
+**Part of a comprehensive suite:**
+- **[SSZ-Metric-Pure](https://github.com/error-wtf/ssz-metric-pure)**: Theoretical foundation & metric framework
+- **[Unified Results](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results)**: Complete test suite (35+ tests)
+- **This Repository**: G79.29+0.46 observational validation
 
 **Research Focus:** Segmented Spacetime and the Origin of Molecular Zones in Expanding Nebulae
 
@@ -74,24 +85,33 @@ cd g79-cygnus-tests
 # Install dependencies
 pip install -r requirements.txt
 
-# Run complete test suite
-python RUN_ALL_TESTS_COMPLETE.py
+# Run ALL validated tests (recommended)
+python RUN_ALL_VALIDATED_TESTS.py
+```
+
+**Expected Output:**
+```
+✅ Parsec Conversion Validation          (0.1s)
+✅ Temperature Equations (Eq. 9-18)      (4.3s)
+✅ Temperature Animations (5 GIFs)      (48.4s)
+✅ Three-Phase Decoupling Model          (4.0s)
+✅ Three-Phase Animations (3 GIFs)      (56.4s)
+
+Total: 5/5 passed, Duration: 1.9 minutes
 ```
 
 ### Individual Tests
 
 ```bash
-# Velocity validation (key result)
-python scripts/test_boundary_v_realistic.py
+# Temperature equations validation
+python TEST_TEMPERATURE_EQUATIONS_COMPLETE.py
 
-# Temperature relations
-python scripts/verify_paper_predictions_FIXED.py
+# Three-phase decoupling model
+python TEST_THREE_PHASE_DECOUPLING.py
 
-# Energy release mechanism
-python scripts/energy_release_model.py
-
-# Domain classification
-python scripts/two_metric_model.py
+# Generate animations
+python GENERATE_TEMPERATURE_ANIMATIONS.py
+python GENERATE_THREE_PHASE_ANIMATIONS.py
 ```
 
 ---
@@ -325,6 +345,44 @@ All predictions testable with existing archival data (Spitzer, Herschel, ALMA).
 
 ---
 
+## Related Repositories
+
+This repository is part of a comprehensive suite for segmented spacetime research:
+
+### 📐 **SSZ-Metric-Pure** (Theoretical Foundation)
+**Repository:** https://github.com/error-wtf/ssz-metric-pure
+
+Core metric framework and mathematical foundations:
+- Pure metric formulation (no ad-hoc parameters)
+- PPN parameter derivation (β = γ = 1)
+- Energy conditions (WEC, DEC, SEC)
+- Photon sphere, ISCO, shadow predictions
+- Complete theoretical framework
+
+### 🧪 **Segmented Spacetime Mass Projection** (Unified Results)
+**Repository:** https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results
+
+Complete test suite and validation framework:
+- 35+ physics tests with detailed interpretations
+- Mass validation across 12 orders of magnitude
+- Dual velocity invariant: v_esc × v_fall = c²
+- Covariant formulation
+- Installation scripts (Windows/Linux)
+
+### 🌌 **G79 Validation Suite** (This Repository)
+**Repository:** https://github.com/error-wtf/g79-cygnus-tests
+
+Application to G79.29+0.46 LBV nebula:
+- 18 validated plots & animations
+- Temperature equation validation
+- Three-phase decoupling model
+- Observational data comparison
+- Publication-ready figures
+
+**All repositories:** Anti-Capitalist License, Open Science, Full Documentation
+
+---
+
 ## Authors
 
 **Carmen N. Wrede**  
@@ -376,16 +434,25 @@ If you use this work in your research:
 ```
 ╔════════════════════════════════════════════════════════╗
 ║                                                        ║
-║  Test Suite:       14/14 Passing (100%) ✅            ║
-║  Code Quality:     Production Ready ✅                ║
-║  Documentation:    Complete ✅                        ║
-║  Major Discovery:  Temporal Redshift (86%!) 🌟        ║
+║  Validated Tests:    5/5 Passing (100%) ✅            ║
+║  Plots & GIFs:       18 Publication-Ready ✅          ║
+║  Repository:         Clean & Organized ✅             ║
+║  Cross-Linked:       SSZ Suite Complete ✅            ║
+║  Major Discovery:    Three-Phase Model 🌟             ║
 ║                                                        ║
 ╚════════════════════════════════════════════════════════╝
 ```
 
-**Last Updated:** 2025-11-06  
-**Version:** 2.1
+**Last Updated:** 2025-11-07  
+**Version:** 3.0
+
+**Recent Updates (2025-11-07):**
+- ✅ 18 validated plots & animations generated
+- ✅ Repository cleanup (-18 obsolete scripts)
+- ✅ Master test runner implemented
+- ✅ Cross-linked with SSZ-Metric-Pure & Unified Results
+- ✅ Complete verification reports
+- ✅ Publication-ready figures exported to D:\paper-plots-gifs
 
 ---
 
