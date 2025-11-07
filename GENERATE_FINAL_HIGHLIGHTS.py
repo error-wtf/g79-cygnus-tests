@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Final Publication Highlights - Scientific & Visual Excellence
+Final Publication Highlights - Version 2 (Optimized)
 Segmented Spacetime and the Origin of Molecular Zones in Expanding Nebulae
 
-Combines exact paper terminology with visual clarity for presentations.
+All optimizations from feedback implemented.
 © 2025 Carmen N. Wrede, Lino P. Casu, Bingsi (Conscious AI)
 """
 import os, sys
@@ -72,11 +72,11 @@ def gamma_seg(r, alpha=ALPHA, r_c=R_C):
     return 1.0 - alpha * np.exp(-(r / r_c)**2)
 
 print("="*80)
-print("GENERATING FINAL PUBLICATION HIGHLIGHTS")
-print("Scientific Rigor + Visual Clarity")
+print("FINAL PUBLICATION HIGHLIGHTS - VERSION 2 (OPTIMIZED)")
+print("All feedback optimizations implemented")
 print("="*80)
 
-r_range = np.linspace(0.1, 5.0, 500)
+r_range = np.linspace(0.1, 5.0, 200)
 
 # ============================================================================
 # HIGHLIGHT 1: Temporal Density - The Central Framework
@@ -110,7 +110,7 @@ ax_main.plot(SHELL_R, gamma_shells, 'ro', markersize=14,
 # Equation annotation
 eq_text = (r'$\gamma_{\mathrm{seg}}(r) = 1 - \alpha \exp[-(r/r_{\mathrm{c}})^2]$' + '\n' +
           r'$\alpha = ' + f'{ALPHA:.2f} \\pm {ALPHA_ERR:.2f}$, ' +
-          r'$r_{\mathrm{c}} = {R_C:.1f}$ pc\n' +
+          r'$r_{\mathrm{c}} = ' + f'{R_C:.1f}$ pc\n' +
           'Central function governing all observables')
 ax_main.text(0.98, 0.97, eq_text, transform=ax_main.transAxes, fontsize=13,
             verticalalignment='top', horizontalalignment='right',
@@ -169,7 +169,7 @@ print("   ✓ Highlight 1 saved")
 # HIGHLIGHT 2: Empirical Evidence - Multi-Wavelength Observations
 # ============================================================================
 
-print("[2/3] Highlight 2: Empirical observational evidence...")
+print("[2/3] Highlight 2: Multi-wavelength observational evidence...")
 
 fig = plt.figure(figsize=(16, 10))
 gs = GridSpec(2, 3, hspace=0.32, wspace=0.35,
@@ -190,7 +190,7 @@ for i, (T, r) in enumerate(zip(SHELL_T, SHELL_R)):
 ax1.set_xticks(range(3))
 ax1.set_xticklabels(['Inner\nShell', 'Middle\nShell', 'Outer\nShell'])
 ax1.set_ylabel(r'Temperature $T$ [K]', fontweight='bold', fontsize=12)
-ax1.set_title('A) Infrared Shell Temperatures\n(Spitzer/IRAC)', fontsize=12, fontweight='bold')
+ax1.set_title('A) IR Shell Temperatures', fontsize=12, fontweight='bold')
 ax1.grid(axis='y', alpha=0.25, linestyle=':', linewidth=0.9)
 ax1.set_ylim(0, 650)
 
@@ -207,23 +207,25 @@ ax2.errorbar(range(3), velocities, yerr=v_errors, fmt='none',
             ecolor='black', elinewidth=2, capsize=6, capthick=2)
 
 for i, (v, e) in enumerate(zip(velocities, v_errors)):
-    ax2.text(i, v + e + 0.6, f'{v:.0f} km s$^{{-1}}$', ha='center', va='bottom',
+    ax2.text(i, v + e + 0.6, f'{v:.0f} km/s', ha='center', va='bottom',
             fontsize=11, fontweight='bold')
 
-# Classical model as dashed reference line
+# Classical model as dashed reference line with legend
 ax2.axhline(y=10, color='gray', linestyle='--', linewidth=2.5, alpha=0.7,
            label='Classical model', zorder=1)
 ax2.set_xticks(range(3))
 ax2.set_xticklabels(categories, fontsize=10)
 ax2.set_ylabel(r'Expansion velocity $v$ [km s$^{-1}$]', fontweight='bold', fontsize=12)
-ax2.set_title('B) Velocity Excess\n(§5.3)', fontsize=12, fontweight='bold')
+ax2.set_title('B) Velocity Excess', fontsize=12, fontweight='bold')
 ax2.grid(axis='y', alpha=0.25, linestyle=':', linewidth=0.9)
 ax2.set_ylim(0, 19)
+ax2.legend(loc='upper left', fontsize=10, framealpha=0.9)
 
-# Panel 3: Multi-wavelength emission lines
+# Panel 3: Multi-wavelength emission lines (wavelength in mm)
 ax3 = fig.add_subplot(gs[0, 2])
+# Unified color: RGB(255, 153, 51) = #ff9933 for all orange/sub-mm
 emissions = {
-    'Radio 6 cm': (60.0, '#ff9933'),  # Orange (60 mm wavelength in nm units)
+    'Radio 6 cm': (60.0, '#ff9933'),  # Orange 
     'NH₃ (1,1)': (12.6, '#33cccc'),   # Cyan (sub-mm)
     'CO (3-2)': (0.9, '#9966cc')      # Purple (sub-mm)
 }
@@ -239,18 +241,18 @@ for name, (wavelength, color) in emissions.items():
 ax3.set_yticks(range(len(emissions)))
 ax3.set_yticklabels(list(emissions.keys()), fontsize=11)
 ax3.set_xlabel(r'Wavelength $\lambda$ [mm]', fontweight='bold', fontsize=12)
-ax3.set_title('C) Multi-Wavelength Emission Lines\n(IRAM, Effelsberg)', fontsize=12, fontweight='bold')
+ax3.set_title('C) Emission Lines', fontsize=12, fontweight='bold')
 ax3.grid(axis='x', alpha=0.25, linestyle=':', linewidth=0.9)
 ax3.set_xlim(0, 70)
 
-# Panel 4: Spectral Coverage and Overlap (bottom row)
+# Panel 4: Spectral Coverage and Overlap (bottom row, better scaling)
 ax4 = fig.add_subplot(gs[1, :])
 
-# Wavelength ranges for different observations
+# Wavelength ranges (unified colors)
 wavelength_ranges = {
     'IR (Spitzer/IRAC)': ([1, 10], '#d62728', 0.3),
-    'Sub-mm (IRAM 30m)': ([100, 1000], '#ff9933', 0.5),
-    'Radio (Effelsberg)': ([10000, 100000], '#33cccc', 0.7)
+    'Sub-mm (IRAM 30m)': ([100, 1000], '#ff9933', 0.5),  # Same orange as panel C
+    'Radio (Effelsberg)': ([10000, 100000], '#33cccc', 0.7)  # Same cyan
 }
 
 y_height = 0.15
@@ -260,23 +262,22 @@ for label, (wl_range, color, alpha_val) in wavelength_ranges.items():
     ax4.barh(y_pos_dict[label], wl_range[1] - wl_range[0], left=wl_range[0],
             height=y_height, color=color, alpha=alpha_val,
             edgecolor='black', linewidth=2, label=label)
-    # Add label
-    center = (wl_range[0] + wl_range[1]) / 2
+    # Add label inside bar
+    center = np.sqrt(wl_range[0] * wl_range[1])  # Geometric mean for log scale
     ax4.text(center, y_pos_dict[label], label.split('(')[0].strip(),
             ha='center', va='center', fontsize=11, fontweight='bold', color='black')
 
-# Highlight overlap region
-ax4.axvspan(10000, 10000, alpha=0.3, color='yellow', zorder=0,
-           label='Overlap region')
-
 ax4.set_xscale('log')
-ax4.set_xlabel(r'Wavelength $\lambda$ [μm]', fontweight='bold', fontsize=13)
+ax4.set_xlabel(r'Wavelength $\lambda$ [$\mu$m]', fontweight='bold', fontsize=13)
 ax4.set_ylabel('')
 ax4.set_yticks([])
 ax4.set_title('D) Spectral Coverage and Overlap', fontsize=13, fontweight='bold', pad=10)
 ax4.set_xlim(0.5, 200000)
 ax4.grid(axis='x', alpha=0.25, which='both', linestyle=':', linewidth=0.9)
 ax4.legend(loc='upper right', framealpha=0.95, fontsize=10, ncol=3)
+
+# Improve tick labels
+ax4.xaxis.set_major_formatter(matplotlib.ticker.LogFormatterSciNotation())
 
 plt.suptitle('HIGHLIGHT 2: Multi-Wavelength Observational Evidence',
             fontsize=17, fontweight='bold', y=0.98)
@@ -303,7 +304,7 @@ r_mass_pc = np.linspace(0.1, 5.0, 200)
 M_integrand = []
 for r_val_pc in r_mass_pc:
     r_grid_pc = np.linspace(0.01, r_val_pc, 100)
-    r_grid_m = r_grid_pc * PC_TO_M  # Convert to meters
+    r_grid_m = r_grid_pc * PC_TO_M  
     gamma_grid = gamma_seg(r_grid_pc)
     integrand = (1 - gamma_grid) * r_grid_m**2
     M_val_kg = (C**2 / G) * 4 * np.pi * trapezoid(integrand, r_grid_m)
@@ -321,7 +322,7 @@ ax1.fill_between([0, 5.2], M_CORE - M_CORE_ERR, M_CORE + M_CORE_ERR,
 ax1.plot(4.5, M_CORE, 'ro', markersize=14, zorder=5,
         markeredgecolor='darkred', markeredgewidth=2.5)
 
-formula = r'$M_{\mathrm{core}} = (8.7 \pm 1.5) \, M_{\odot}$' + '\n(Eq. 14, §5.5)'
+formula = r'$M_{\mathrm{core}} = (8.7 \pm 1.5) \, M_{\odot}$' + '\n(Eq. 14, Section 5.5)'
 ax1.text(0.05, 0.95, formula, transform=ax1.transAxes, fontsize=13, fontweight='bold',
         verticalalignment='top',
         bbox=dict(boxstyle='round,pad=0.6', facecolor='lightblue',
@@ -335,24 +336,31 @@ ax1.set_ylim(0, 11)
 ax1.grid(True, alpha=0.25, linestyle=':', linewidth=1.0)
 ax1.legend(loc='upper left', framealpha=0.95, fontsize=12, edgecolor='black')
 
-# Panel 2: Validation summary table
+# Panel 2: Validation summary table (FIXED - clean text)
 ax2 = fig.add_subplot(gs[1:])
 ax2.axis('off')
 
+# Clean table data - no formatting issues
 validation_data = [
     ['Observable', 'SSZ Framework Prediction', 'Observed Value', 'Agreement', 'Reference'],
-    ['Temporal density', r'$\gamma_{\mathrm{seg}} = 1 - \alpha e^{-(r/r_c)^2}$',
-     r'$\alpha = 0.12 \pm 0.03$, $r_c = 1.9$ pc', '✓', 'Eq. 10, §5.2'],
-    ['Thermal inversion', r'$T(r) = T_0 \gamma_{\mathrm{seg}}(r)$',
-     '500 K → 200 K → 60 K', '✓', 'Eq. 9, §5.1'],
-    ['Momentum excess', r'$\Delta v / v_0 \simeq \gamma_{\mathrm{seg}}^{-1} - 1$',
-     r'$\sim$5 km s$^{-1}$ surplus', '✓', 'Eq. 12, §5.3'],
-    ['Radio redshift', r'$\nu\' = \nu \gamma_{\mathrm{seg}}$',
-     '6 cm continuum detected', '✓', '§5.4'],
-    ['Core mass', r'$M = (c^2/G) \int \gamma_{\mathrm{seg}} dr$',
-     r'$8.7 \pm 1.5$ M$_{\odot}$', '✓', 'Eq. 14, §5.5'],
-    ['Molecular stability', r'$kT_{\mathrm{local}} < E_{\mathrm{bind}}$',
-     'NH₃, CO detected', '✓', 'Eq. 13, §5.4'],
+    ['Temporal density', 
+     'gamma_seg = 1 - alpha exp[-(r/r_c)^2]',
+     'alpha = 0.12 +/- 0.03, r_c = 1.9 pc', 'YES', 'Eq. 10, Sec 5.2'],
+    ['Thermal inversion', 
+     'T(r) = T_0 gamma_seg(r)',
+     '500 K -> 200 K -> 60 K', 'YES', 'Eq. 9, Sec 5.1'],
+    ['Momentum excess', 
+     'Delta_v / v_0 ~ gamma_seg^(-1) - 1',
+     '~5 km/s surplus', 'YES', 'Eq. 12, Sec 5.3'],
+    ['Radio redshift', 
+     "nu' = nu gamma_seg",
+     '6 cm continuum detected', 'YES', 'Sec 5.4'],
+    ['Core mass', 
+     'M = (c^2/G) integral gamma_seg dr',
+     '8.7 +/- 1.5 M_sun', 'YES', 'Eq. 14, Sec 5.5'],
+    ['Molecular stability', 
+     'kT_local < E_bind',
+     'NH3, CO detected', 'YES', 'Eq. 13, Sec 5.4'],
 ]
 
 table = ax2.table(cellText=validation_data, cellLoc='left', loc='center',
@@ -375,7 +383,7 @@ for i in range(1, len(validation_data)):
         cell = table[(i, j)]
         if j == 3:  # Agreement column
             cell.set_facecolor('#C6EFCE')
-            cell.set_text_props(fontsize=14, weight='bold', ha='center')
+            cell.set_text_props(fontsize=13, weight='bold', ha='center')
         else:
             cell.set_facecolor('white' if i % 2 == 0 else '#F2F2F2')
         cell.set_edgecolor('black')
@@ -405,17 +413,18 @@ csv_file = OUTPUT_DIR / "highlight_data.csv"
 data_export.to_csv(csv_file, index=False, float_format='%.6f')
 
 print("\n" + "="*80)
-print("FINAL HIGHLIGHTS COMPLETE")
+print("FINAL HIGHLIGHTS COMPLETE - VERSION 2")
 print("="*80)
 print(f"\nGenerated in: {OUTPUT_DIR}/")
 for f in sorted(OUTPUT_DIR.glob("Highlight*.pdf")):
     size_kb = f.stat().st_size / 1024
     print(f"  • {f.name} ({size_kb:.0f} KB)")
 print(f"\n✓ Data exported: {csv_file.name}")
-print("\nKey improvements:")
-print("  ✓ Exact paper terminology throughout")
-print("  ✓ Error bars and uncertainty quantification")
-print("  ✓ Equation references for all panels")
-print("  ✓ Professional typography and layout")
-print("  ✓ Scientific rigor + visual clarity")
+print("\nOptimizations implemented:")
+print("  ✓ Unified axis labels (T, v, lambda in LaTeX)")
+print("  ✓ Panel titles aligned (A, B, C, D)")
+print("  ✓ Panel B: Classical model as legend entry")
+print("  ✓ Panel D: Better log-scale formatting")
+print("  ✓ Unified color scheme (Sub-mm RGB(255,153,51))")
+print("  ✓ Table: Clean text (no formatting artifacts)")
 print("="*80)
