@@ -117,11 +117,11 @@ class PaperTestRunner:
         self.start_time = datetime.now()
     
     def run_script(self, script_path, test_name, timeout=300):
-        """Run a Python script and capture result"""
+        """Run a Python script and show output in real-time"""
         print(f"\n{'='*80}")
         print(f"Running: {test_name}")
         print(f"Script: {script_path.name}")
-        print(f"{'='*80}")
+        print(f"{'='*80}\n")
         
         if not script_path.exists():
             print(f"  ⚠️ Script not found: {script_path}")
@@ -134,10 +134,11 @@ class PaperTestRunner:
             return False
         
         try:
+            # REAL-TIME OUTPUT: Show all calculations as they happen
             result = subprocess.run(
                 [sys.executable, str(script_path)],
-                capture_output=True,
-                text=True,
+                stdout=sys.stdout,  # Show output immediately
+                stderr=sys.stderr,  # Show errors immediately
                 encoding='utf-8',
                 errors='replace',
                 timeout=timeout,
@@ -146,20 +147,20 @@ class PaperTestRunner:
             
             success = (result.returncode == 0)
             
+            print(f"\n{'='*80}")
             if success:
-                print(f"  ✅ PASS")
+                print(f"  ✅ PASS: {test_name}")
             else:
-                print(f"  ❌ FAIL (exit code {result.returncode})")
-                if result.stderr:
-                    print(f"  Error: {result.stderr[:500]}")
+                print(f"  ❌ FAIL: {test_name} (exit code {result.returncode})")
+            print(f"{'='*80}")
             
             self.results.append({
                 'test': test_name,
                 'script': script_path.name,
                 'status': 'PASS' if success else 'FAIL',
                 'exitcode': result.returncode,
-                'stdout': result.stdout[-1000:] if result.stdout else '',
-                'stderr': result.stderr[-500:] if result.stderr else ''
+                'stdout': 'See above',
+                'stderr': ''
             })
             
             return success

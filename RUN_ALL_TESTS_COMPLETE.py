@@ -34,17 +34,20 @@ def print_header(title):
     print("="*80)
 
 def run_script(script_path, description):
-    """Run a Python script and capture output"""
-    print(f"\n>> Running: {description}")
+    """Run a Python script and show output in real-time"""
+    print(f"\n{'='*80}")
+    print(f">> Running: {description}")
     print(f"   Script: {script_path}")
+    print(f"{'='*80}\n")
     
     start_time = time.time()
     
     try:
+        # REAL-TIME OUTPUT: Don't capture, let it print directly
         result = subprocess.run(
             [sys.executable, script_path],
-            capture_output=True,
-            text=True,
+            stdout=sys.stdout,  # Show output immediately
+            stderr=sys.stderr,  # Show errors immediately
             encoding='utf-8',
             errors='replace',
             timeout=60
@@ -52,26 +55,28 @@ def run_script(script_path, description):
         
         elapsed = time.time() - start_time
         
+        print(f"\n{'='*80}")
         if result.returncode == 0:
-            print(f"   [PASS] ({elapsed:.1f}s)")
+            print(f"✅ [PASS] {description} ({elapsed:.1f}s)")
+            print(f"{'='*80}")
             return {
                 'script': str(script_path),
                 'description': description,
                 'status': 'PASS',
                 'time': elapsed,
-                'output': result.stdout,
-                'error': result.stderr
+                'output': 'See above',
+                'error': ''
             }
         else:
-            print(f"   [FAIL] ({elapsed:.1f}s)")
-            print(f"   Error: {result.stderr[:200]}")
+            print(f"❌ [FAIL] {description} ({elapsed:.1f}s)")
+            print(f"{'='*80}")
             return {
                 'script': str(script_path),
                 'description': description,
                 'status': 'FAIL',
                 'time': elapsed,
-                'output': result.stdout,
-                'error': result.stderr
+                'output': 'See above',
+                'error': f'Exit code: {result.returncode}'
             }
             
     except subprocess.TimeoutExpired:
