@@ -42,8 +42,16 @@ htmlcov/
 *.png
 *.pdf
 !papers/*.pdf
+!paper_style_figures/*.png
+!paper_style_figures/*.pdf
+!final_highlights/*.png
+!final_highlights/*.pdf
+!scientific_figures/*.png
+!scientific_figures/*.pdf
 *.csv
 !data/**/*.csv
+!paper_style_figures/*.csv
+!final_highlights/*.csv
 *.fits
 *.log
 
