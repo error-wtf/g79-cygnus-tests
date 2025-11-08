@@ -1,4 +1,4 @@
-# 🌀 Windsurf Prompt: Segmented IR Ring Analysis – G79.29+0.46
+# 🌀 Segmented IR Ring Analysis – G79.29+0.46
 
 **Status:** ✅ READY TO RUN  
 **Date:** 2025-11-05  
