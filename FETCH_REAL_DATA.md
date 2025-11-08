@@ -1,7 +1,5 @@
 # Fetch REAL Data NOW! 🚀
 
-**Carmen: "Nicht reden, sondern fetchen!" 😄**
-
 **Complete end-to-end workflow from IRSA → FITS → Rings → Validation**
 
 ---
