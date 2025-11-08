@@ -1,4 +1,4 @@
-# Carmen's "Telescope → CSV" Workflow 🔭→📊
+# "Telescope → CSV" Workflow 🔭→📊
 
 **Complete implementation guide**  
 **Date:** 2025-11-05  
@@ -8,8 +8,6 @@
 ---
 
 ## 🎯 The Complete Picture
-
-**What Carmen taught us:**
 
 1. **Papers ≠ Raw Data**
    - Papers show zone averages, representative clumps
