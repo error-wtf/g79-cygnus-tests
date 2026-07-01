@@ -50,7 +50,7 @@ N_val = N(r, r_s)
 ```
 Ξ(r) = (r_s/r)² × exp(-r/r_φ)
 D_SSZ(r) = 1 / (1 + Ξ(r))
-N(r) = N_max × (1 - exp(-φ×r/r_s))
+N(r) = N_max × (1 - exp(-φ×r_s / r))
 ```
 
 ---
